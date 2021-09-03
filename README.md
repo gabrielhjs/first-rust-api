@@ -37,7 +37,7 @@ My first functional rust api.
 </tr>
 
 <tr>
-<td><pre>/hello</pre></td>
+<td>/hello</td>
 <td><i>POST</i></td>
 <td>
 
@@ -64,7 +64,7 @@ The response says what you entered in the date field.
 </tr>
 
 <tr>
-<td><pre>/status</pre></td>
+<td>/status</td>
 <td><i>GET</i></td>
 <td></td>
 <td>
