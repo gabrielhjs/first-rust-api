@@ -2,6 +2,7 @@ use actix_web::{App, HttpResponse, HttpServer, Responder, web};
 use dotenv::dotenv;
 use std::env;
 
+mod database;
 mod api;
 
 async fn e404() -> impl Responder {
@@ -14,8 +15,9 @@ async fn main() -> std::io::Result<()> {
   dotenv().ok();
 
 
-  let server = HttpServer::new(|| {
+  let server = HttpServer::new(move || {
     App::new()
+      .data(database::establish_connection_pool())
       .default_service(web::get().to(e404))
       .service(web::scope("/hello").configure(api::hello::routes))
       .service(web::scope("/api").configure(api::routes))
