@@ -89,6 +89,8 @@ The response shows the current status of the api.
 
 * [x] Status;
 * [x] Some post data with request body;
+* [x] Apply Docker;
+* [x] Apply Docker Compose;
 * [ ] Some connection with database using [Diesel](https://diesel.rs/);
 * [ ] Insert data in some table;
 * [ ] Read data from table;

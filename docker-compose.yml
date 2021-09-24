@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  web:
+    container_name: rust-debian
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      HOST: ${HOST}
+      PORT: ${PORT}
+      actix_web: ${actix_web}
