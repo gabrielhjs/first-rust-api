@@ -5,6 +5,7 @@ mod users;
 mod index;
 mod hello;
 mod stream;
+mod data;
 
 
 pub fn routes(cfg: &mut web::ServiceConfig) {
@@ -27,6 +28,10 @@ pub fn routes(cfg: &mut web::ServiceConfig) {
   cfg.service(
     web::resource("/stream")
       .route(web::get().to(stream::controller::stream))
+  );
+  cfg.service(
+    web::resource("/data")
+      .route(web::get().to(data::controller::data))
   );
 }
 

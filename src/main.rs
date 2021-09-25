@@ -8,6 +8,7 @@ use env_logger;
 mod database;
 mod api;
 
+
 async fn e404() -> Result<HttpResponse> {
   #[derive(Serialize)]
   struct Error {
@@ -21,6 +22,7 @@ async fn e404() -> Result<HttpResponse> {
   )
 }
 
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
   dotenv().ok();
@@ -30,7 +32,7 @@ async fn main() -> std::io::Result<()> {
     App::new()
       .wrap(Logger::default())
       .wrap(Compress::new(ContentEncoding::Auto))
-      // .data(database::establish_connection_pool())
+      .data(database::establish_connection_pool())
       .default_service(web::get().to(e404))
       .service(web::scope("/").configure(api::routes))
   })
