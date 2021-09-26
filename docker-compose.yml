@@ -9,7 +9,4 @@ services:
       HOST: 0.0.0.0
       PORT: 8080
       actix_web: ${actix_web}
-      DB_HOST: localhost
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_PORT: ${DB_PORT}
+      DATABASE_URL: ${DATABASE_URL}

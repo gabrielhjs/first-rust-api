@@ -91,13 +91,13 @@ The response shows the current status of the api.
 * [x] Some post data with request body;
 * [x] Apply Docker;
 * [x] Apply Docker Compose;
-* [ ] Some connection with database using [Diesel](https://diesel.rs/);
-* [ ] Insert data in some table;
+* [x] Some connection with database using [Diesel](https://diesel.rs/);
+* [x] Insert data in some table;
 * [ ] Read data from table;
 * [ ] Cache with [Redis](https://redis.io/);
 * [ ] Web [Socket](https://actix.rs/docs/websockets/) connection;
 * [ ] Streaming database and send to socket;
-* [ ] Create user;
+* [x] Create user;
 * [ ] Auth users;
 * [ ] Logout users;
 * [ ] Some logged route access.

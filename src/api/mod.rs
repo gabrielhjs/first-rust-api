@@ -1,11 +1,8 @@
 use actix_web::web;
 
 mod status;
-mod users;
 mod index;
-mod hello;
-mod stream;
-mod data;
+mod user;
 
 
 pub fn routes(cfg: &mut web::ServiceConfig) {
@@ -18,20 +15,9 @@ pub fn routes(cfg: &mut web::ServiceConfig) {
       .route(web::get().to(status::status)),
   );
   cfg.service(
-    web::resource("/users")
-      .route(web::get().to(users::users))
-  );
-  cfg.service(
-    web::resource("/hello")
-      .route(web::post().to(hello::controller::hello))
-  );
-  cfg.service(
-    web::resource("/stream")
-      .route(web::get().to(stream::controller::stream))
-  );
-  cfg.service(
-    web::resource("/data")
-      .route(web::get().to(data::controller::data))
+    web::resource("/user")
+      .route(web::post().to(user::controller::create_user))
+      .route(web::delete().to(user::controller::delete_user))
   );
 }
 

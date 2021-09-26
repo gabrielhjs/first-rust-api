@@ -4,12 +4,14 @@ FROM rust:1.55.0-slim as builder
 RUN USER=root cargo new --bin web_server
 WORKDIR ./web_server
 COPY ./Cargo.toml ./Cargo.toml
+COPY ./diesel.toml ./diesel.toml
 
 # Build empty rust project with libs
 RUN cargo build --release
 RUN rm src/*.rs
 
 COPY ./src ./src
+COPY ./migrations ./migrations
 
 RUN rm ./target/release/deps/web_server*
 
