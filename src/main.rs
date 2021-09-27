@@ -1,27 +1,27 @@
-use actix_web::{App, HttpResponse, HttpServer, Result, web, middleware::{Logger, Compress}};
-use serde::Serialize;
-use dotenv::dotenv;
 use std::env;
+
+use actix_web::{
+  App,
+  HttpResponse, HttpServer, middleware::{Compress, Logger}, Result, web,
+};
 use actix_web::http::header::ContentEncoding;
+use dotenv::dotenv;
 use env_logger;
+use serde::Serialize;
 
-mod database;
 mod api;
-
+mod database;
 
 async fn e404() -> Result<HttpResponse> {
   #[derive(Serialize)]
   struct Error {
-    error: String
+    error: String,
   }
 
-  Ok(HttpResponse::NotFound()
-    .json(Error {
-      error: "Page not found".into()
-    })
-  )
+  Ok(HttpResponse::NotFound().json(Error {
+    error: "Page not found".into(),
+  }))
 }
-
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
